@@ -1,0 +1,16 @@
+AddDefaultCharset UTF-8
+
+ServerSignature Off
+
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php [L]
+
+<FilesMatch "\.(htaccess|htpasswd|ini|phps|fla|psd|log|sh|dat|json)$">
+	Order Allow,Deny
+	Deny from all
+</FilesMatch>
